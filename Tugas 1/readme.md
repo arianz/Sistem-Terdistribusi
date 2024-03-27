@@ -33,3 +33,28 @@ deb http://archive.canonical.com/ubuntu/ jammy partner
 deb-src http://archive.canonical.com/ubuntu/ jammy partner
 ```
 sudo apt update; sudo apt upgrade -y
+
+3. Install Nginx
+
+```
+sudo apt intall nginx nginx-extras
+```
+
+4. Masuk ke direktori Nginx
+
+```
+sudo apt intall nginx nginx-extras
+```
+
+5. Buat dan Konfigurasi File sister.local
+
+```
+sudo cp default sister.local
+```
+```
+sudo nano default sister.local
+```
+![IMG_20240327_121917](https://github.com/arianz/Sistem-Terdistribusi/assets/55643185/3df132ec-437e-4ec0-aca4-24477eb1b970)
+
+
+6.
