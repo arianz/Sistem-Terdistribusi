@@ -100,3 +100,55 @@ C:\Windows\System32\drivers\etc
 ![IMG_20240327_125330](https://github.com/arianz/Sistem-Terdistribusi/assets/55643185/ed6642c5-4bd1-49d6-aa31-c06816bb72a9)
 
 ## Install Ubuntu 20 & 18 untuk IP Status
+
+1. Install Ubuntu 20 (Focal) as microservice1
+
+```
+sudo lxc-create -n microservice1 -t download -- --dist ubuntu --release focal --arch amd64 --force-cache --server images.linuxcontainers.org
+```
+
+2. Install Ubuntu 18 (Bionic) as microservice2
+
+```
+sudo lxc-create -n microservice2 -t download -- --dist ubuntu --release bionic --arch amd64 --force-cache --server images.linuxcontainers.org
+```
+
+3. Cek status run microservice
+
+```
+sudo lxc-ls -f
+```
+
+4. Run microservice
+
+```
+sudo lxc-start -n microservice1
+sudo lxc-start -n microservice2
+```
+
+5. Masuk ke microservice untuk konfigurasi ip statis
+
+```
+sudo lxc-attach -n microservice1
+sudo lxc-attach -n microservice2
+```
+
+6. Saat pertama kali konfigurasi setting new password
+
+```
+passwd
+```
+
+7. Install nano sebelum konfig ip
+
+```
+apt install nano
+```
+
+8. Cek IP
+
+```
+ip a
+inet 10.0.3.198/24 brd 10.0.3.255 (microservice1 blog)
+inet 10.0.3.175/24 brd 10.0.3.255 (microservice2 aboutus)
+```
