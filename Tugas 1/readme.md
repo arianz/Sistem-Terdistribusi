@@ -152,3 +152,32 @@ ip a
 inet 10.0.3.198/24 brd 10.0.3.255 (microservice1 blog)
 inet 10.0.3.175/24 brd 10.0.3.255 (microservice2 aboutus)
 ```
+![317057270-0deef76f-4e54-4573-a1f4-fa3cb737b683](https://github.com/arianz/Sistem-Terdistribusi/assets/55643185/3e7f557d-5405-4ae3-89f0-3140f06c38d0)
+
+9. Restart
+
+```
+sudo netplan apply
+```
+
+10. Tes ping google.com
+
+```
+ping google.com
+```
+![13](https://github.com/arianz/Sistem-Terdistribusi/assets/55643185/3e8745fc-af9d-4687-a759-3b3d8b06fca0)
+
+11. Setelah konfig lakukan update
+
+```
+apt update; apt upgrade -y
+```
+
+## Membuat Web-Server sister.local/blog & sister.local/aboutus
+1. Masuk salah satu microservice
+2. Install Nginx
+
+```
+sudo apt install nginx nginx-extras
+apt install curl
+```
