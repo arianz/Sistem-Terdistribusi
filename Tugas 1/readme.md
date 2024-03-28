@@ -279,4 +279,46 @@ sudo nano /etc/hosts
 ```
 ![19](https://github.com/arianz/Sistem-Terdistribusi/assets/55643185/d45138fc-837f-402b-aad5-f0a3ec438490)![20](https://github.com/arianz/Sistem-Terdistribusi/assets/55643185/6dc40972-90aa-4ecd-9238-18eb99886fc6)
 
+18. Cek sekilas apakah sudah sesuai
 
+```
+curl mcsv1.local
+curl mcsv2.local
+```
+
+19. Kembali ke file parent
+20. Masuk kembali ke direktori nginx
+
+```
+cd /etc/nginx/sites-enabled
+```
+
+21. Edit file hosts, tambahkan paling bawah
+
+```
+sudo nano /etc/hosts
+10.0.3.198	mcsv1.local
+10.0.3.175	mcsv2.local
+```
+![21](https://github.com/arianz/Sistem-Terdistribusi/assets/55643185/4d1dc215-27f2-46c2-a710-d585d8768e95)
+
+22. Cek konfigurasi
+
+```
+sudo nginx -t
+```
+
+22. Reload konfigurasi
+
+```
+sudo nginx -s reload
+```
+
+23. Coba pada browser
+
+```
+sister.local/blog
+sister.local/aboutus
+```
+![22 png](https://github.com/arianz/Sistem-Terdistribusi/assets/55643185/bc6a218e-8f5e-4d86-8378-1389ff6688d2)
+![23 png](https://github.com/arianz/Sistem-Terdistribusi/assets/55643185/24b8e202-13be-4d20-ba46-8545e20662cd)
