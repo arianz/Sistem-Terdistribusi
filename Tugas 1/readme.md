@@ -181,3 +181,102 @@ apt update; apt upgrade -y
 sudo apt install nginx nginx-extras
 apt install curl
 ```
+
+3. Pindah ke direktori html & edit file nginx html
+
+```
+cd /var/www/html
+nano index.nginx-debian.html
+```
+![14](https://github.com/arianz/Sistem-Terdistribusi/assets/55643185/f41ef765-927f-4cd1-82ec-c17ea949f229)
+![15](https://github.com/arianz/Sistem-Terdistribusi/assets/55643185/168d0949-1075-4fb1-88d0-306625b29903)
+
+4. Cek sekilas apakah setelah semua file html yang di edit tidak kembali default
+
+```
+curl localhost
+```
+
+5. Exit untuk keluar microservice
+
+```
+exit
+```
+
+6. Masuk direktori parent
+7. Pindah ke direktori Nginx
+
+```
+cd /etc/nginx/sites-enabled/
+```
+
+8. Edit sister.local
+
+```
+sudo nano sister.local
+```
+![IMG_20240328_081752](https://github.com/arianz/Sistem-Terdistribusi/assets/55643185/6ff32b28-c9c4-43c7-9230-eda3abe7bc49)
+
+9. Cek konfigurasi
+
+```
+sudo nginx -t
+```
+
+10. Reload konfigurasi
+
+```
+sudo nginx -s reload
+```
+
+11. Masuk lagi ke dalam microservice untuk membuat mcsv1.local & mcsv2.local
+
+```
+sudo lxc-attach -n microservice1
+sudo lxc-attach -n microservice2
+```
+
+12. Pindah ke direktori Nginx, kemudian copy file default ke file mcsv
+
+```
+cd /etc/nginx/sites-enabled
+cp default mcsv1.local
+cp default mcsv2.local
+```
+
+13. Edit isi file
+
+```
+nano mcsv1.local
+nano mcsv2.local
+```
+![17](https://github.com/arianz/Sistem-Terdistribusi/assets/55643185/2fc91182-e468-445a-8f8f-4cbdb7656f78)
+![18](https://github.com/arianz/Sistem-Terdistribusi/assets/55643185/a8ca41c6-cc87-4015-9361-95ab76debad2)
+
+14. Cek konfigurasi
+
+```
+sudo nginx -t
+```
+
+15. Reload konfigurasi
+
+```
+sudo nginx -s reload
+```
+
+16. Masuk ke direktori html, kemudian kemudian copy file index nginx ke file index.html
+
+```
+cd /var/www/html
+cp index.nginx-debian.html index.html
+```
+
+17. Edit file hosts
+
+```
+sudo nano /etc/hosts
+```
+![19](https://github.com/arianz/Sistem-Terdistribusi/assets/55643185/d45138fc-837f-402b-aad5-f0a3ec438490)![20](https://github.com/arianz/Sistem-Terdistribusi/assets/55643185/6dc40972-90aa-4ecd-9238-18eb99886fc6)
+
+
